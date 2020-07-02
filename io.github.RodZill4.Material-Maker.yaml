@@ -19,8 +19,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://github.com/RodZill4/material-maker/releases/download/0.9/material_maker_0_9_linux.tgz
-        sha256: 947c8f6e1c84f89e1dbb32ce338527faff6ca081647f41734ad2c1d45143ff15
+        url: https://github.com/RodZill4/material-maker/releases/download/0.92/material_maker_0_92_linux.tgz
+        sha256: 571bceaedfaa749b66813534a727d917e7a806f7fb6e6d9eb91a4108db7a3e7a
 
       - type: script
         dest-filename: material_maker.sh
@@ -31,17 +31,16 @@ modules:
           - /app/bin/godot-runner --audio-driver Dummy --main-pack /app/bin/material-maker.pck "$@"
 
       - type: file
-        url: https://raw.githubusercontent.com/RodZill4/material-maker/master/icon.png
-        sha256: b6217901109513d5856369b1d9fd8a1981b584ab8d3091fa9c37691782495222
+        url: https://raw.githubusercontent.com/RodZill4/material-maker/2b3651dc25e1737956c100579fbdf36abc5b0b70/icon.png
+        sha256: 8d4420268d527e77067d3b2079d23033b9dfe687be4783132a6de8df8fc86835
 
       - type: file
-        url: https://raw.githubusercontent.com/RodZill4/material-maker/0.9/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
+        url: https://raw.githubusercontent.com/RodZill4/material-maker/0.92/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
         sha256: d8c96863144183d9f256229232c0cfe18b10518abdb2bba3477781a8d96f0133
 
-      # TODO: Reference upstream commit once <https://github.com/RodZill4/material-maker/pull/94> is merged.
       - type: file
-        url: https://raw.githubusercontent.com/Calinou/godot-procedural-textures/update-appstream-metadata/material_maker/misc/linux/io.github.RodZill4.Material-Maker.appdata.xml
-        sha256: 180f3bb678a72d02459d7016801ef741c8c7a598ad35648b3f616756f51a829a
+        url: https://raw.githubusercontent.com/RodZill4/material-maker/2b3651dc25e1737956c100579fbdf36abc5b0b70/material_maker/misc/linux/io.github.RodZill4.Material-Maker.appdata.xml
+        sha256: 0ab4dcfe3867f2bc25e9a03e5ffe59aee6d56a059d9aeca96f23b82485fd1811
 
     build-commands:
       - install -Dm755 material_maker.sh /app/bin/material-maker
