@@ -1,6 +1,6 @@
 app-id: io.github.RodZill4.Material-Maker
 base: org.godotengine.godot.BaseApp
-base-version: "3.2"
+base-version: "3.3"
 runtime: org.freedesktop.Platform
 runtime-version: "20.08"
 sdk: org.freedesktop.Sdk
@@ -19,8 +19,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://github.com/RodZill4/material-maker/releases/download/0.93/material_maker_0_93_linux.tar.gz
-        sha256: b85f2c2b577e899d741c50d1047bb3870fd4a784f3927112264eba737890b28f
+        url: https://github.com/RodZill4/material-maker/releases/download/0.96/material_maker_0_96_linux.tar.gz
+        sha256: f6c4d46ece27764fddd00251df6634fc1638a59d85946c9b439fe189ae094742
 
       - type: script
         dest-filename: material_maker.sh
@@ -31,22 +31,21 @@ modules:
           - /app/bin/godot-runner --audio-driver Dummy --main-pack /app/bin/material-maker.pck "$@"
 
       - type: file
-        url: https://raw.githubusercontent.com/RodZill4/material-maker/0.93/icon.png
-        sha256: 8d4420268d527e77067d3b2079d23033b9dfe687be4783132a6de8df8fc86835
+        url: https://raw.githubusercontent.com/RodZill4/material-maker/0.96/icon.png
+        sha256: 72ee1a0fc59b798b8849eb9bd0cb7b67fd9ee3ff41645f90c2ca98168f3619ef
 
       - type: file
-        url: https://raw.githubusercontent.com/RodZill4/material-maker/0.93/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
-        sha256: d8c96863144183d9f256229232c0cfe18b10518abdb2bba3477781a8d96f0133
+        url: https://raw.githubusercontent.com/RodZill4/material-maker/cdcd72bc9f40f52e59ac05d16c64166080617478/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
+        sha256: 381e6425233d0aa3786c5583a2415d0d20b828481fa93dceac1e4376481d1330
 
-      # TODO: Reference upstream commit once <https://github.com/RodZill4/material-maker/pull/94> is merged.
       - type: file
-        url: https://raw.githubusercontent.com/RodZill4/material-maker/0.93/material_maker/misc/linux/io.github.RodZill4.Material-Maker.appdata.xml
-        sha256: 4a27286e448b35c2e7e840c267ac2402f53956ff9fcb5c5f8285797753c32e38
+        url: https://raw.githubusercontent.com/RodZill4/material-maker/cdcd72bc9f40f52e59ac05d16c64166080617478/material_maker/misc/linux/io.github.RodZill4.Material-Maker.appdata.xml
+        sha256: 177d25761426a67f38949d390daa87ed87c6e61fe601afb69638dce0aed9a966
 
     build-commands:
       - install -Dm755 material_maker.sh /app/bin/material-maker
       - install -Dm644 material_maker.pck /app/bin/material-maker.pck
-      - mv {examples,library,nodes}/ /app/bin/
+      - mv {examples,library,nodes,doc,environments,meshes,export}/ /app/bin/
       - install -Dm644 icon.png -t /app/share/icons/hicolor/256x256/apps/
       - install -Dm644 io.github.RodZill4.Material-Maker.desktop -t /app/share/applications/
       - install -Dm644 io.github.RodZill4.Material-Maker.appdata.xml -t /app/share/appdata/
