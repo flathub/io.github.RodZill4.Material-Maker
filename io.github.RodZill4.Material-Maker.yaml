@@ -12,7 +12,7 @@ finish-args:
   - --socket=x11
   - --filesystem=home
   - --device=dri
-
+  - --share=network
 modules:
   - name: material-maker
     buildsystem: simple
