@@ -2,7 +2,7 @@ app-id: io.github.RodZill4.Material-Maker
 base: org.godotengine.godot.BaseApp
 base-version: "3.5"
 runtime: org.freedesktop.Platform
-runtime-version: "21.08"
+runtime-version: "22.08"
 sdk: org.freedesktop.Sdk
 command: material-maker
 rename-icon: icon
