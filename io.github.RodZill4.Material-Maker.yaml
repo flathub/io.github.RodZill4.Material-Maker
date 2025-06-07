@@ -4,6 +4,7 @@ runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
 command: material-maker
 rename-icon: icon
+rename-appdata-file: io.github.RodZill4.Material-Maker.metainfo.xml
 
 build-options:
   arch:
@@ -97,7 +98,7 @@ modules:
         sha256: 381e6425233d0aa3786c5583a2415d0d20b828481fa93dceac1e4376481d1330
 
       - type: file
-        path: io.github.RodZill4.Material-Maker.metainfo.xml
+        path: io.github.RodZill4.Material-Maker.appdata.xml
         
     build-commands:
       - install -Dm755 material_maker.sh /app/bin/material-maker
@@ -105,4 +106,4 @@ modules:
       - mv {examples,library,nodes,doc,environments,meshes,export}/ /app/bin/
       - install -Dm644 icon.png -t /app/share/icons/hicolor/256x256/apps/
       - install -Dm644 io.github.RodZill4.Material-Maker.desktop -t /app/share/applications/
-      - install -Dm644 io.github.RodZill4.Material-Maker.metainfo.xml -t /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - install -Dm644 io.github.RodZill4.Material-Maker.appdata.xml -t /app/share/appdata/
