@@ -67,7 +67,7 @@ modules:
 
       - type: patch
         path: godot-enable-tinyexr.patch
-        only-arches: [aarch64, x86_64]
+        only-arches: [x86_64]
 
     build-commands:
       - python3 /app/bin/scons $SCONS_FLAGS $SCONS_FLAGS_EXTRA tools=no target=release -j "$FLATPAK_BUILDER_N_JOBS"
