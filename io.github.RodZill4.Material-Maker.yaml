@@ -16,7 +16,7 @@ build-options:
 
   env:
         # Will be appended to the version string displayed in the command-line help
-        BUILD_NAME: flathub
+        BUILD_NAME: custom_build
 
         # SCons flags common to all builds
         # Shouldn't be quoted when used as it's a single string, not an array
