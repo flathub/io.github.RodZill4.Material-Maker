@@ -4,6 +4,7 @@ runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
 command: material-maker
 rename-icon: icon
+rename-appdata-file: io.github.RodZill4.Material-Maker.appdata.xml
 
 build-options:
   arch:
@@ -99,7 +100,7 @@ modules:
       - type: file
         url: https://github.com/RodZill4/material-maker/raw/1.3/material_maker/misc/linux/io.github.RodZill4.Material-Maker.appdata.xml
         sha256: 77a214343062d563b06760075407abc6f967c1882fa12dca20c3d0ed2a7d210a
-
+        
     build-commands:
       - install -Dm755 material_maker.sh /app/bin/material-maker
       - install -Dm644 material_maker.pck /app/bin/material-maker.pck
