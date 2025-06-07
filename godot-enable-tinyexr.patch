@@ -1,0 +1,9 @@
+--- godot-3.5.2-stable/modules/tinyexr/config.py
++++ godot-3.5.2-mm/modules/tinyexr/config.py
+@@ -1,5 +1,5 @@
+ def can_build(env, platform):
+-    return env["tools"]
++    return True
+ 
+ 
+ def configure(env):
