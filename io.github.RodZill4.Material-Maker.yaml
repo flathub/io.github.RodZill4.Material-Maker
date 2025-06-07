@@ -1,5 +1,4 @@
 app-id: io.github.RodZill4.Material-Maker
-version: 1.3
 runtime: org.freedesktop.Platform
 runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
@@ -14,34 +13,34 @@ build-options:
         # (causes issues on other architectures)
         SCONS_FLAGS_EXTRA: use_lto=yes
 
+  env:
+        # Will be appended to the version string displayed in the command-line help
+        BUILD_NAME: flathub
+
+        # SCons flags common to all builds
+        # Shouldn't be quoted when used as it's a single string, not an array
+        SCONS_FLAGS: >
+          platform=x11
+          CCFLAGS=-I/app/include
+          prefix=/app
+          unix_global_settings_path=/app
+          progress=no
+          builtin_freetype=no
+          builtin_libogg=no
+          builtin_libpng=no
+          builtin_libtheora=no
+          builtin_libvorbis=no
+          builtin_libwebp=no
+          builtin_libvpx=no
+          builtin_zlib=no
+          udev=no
+
 finish-args:
   - --share=ipc
   - --socket=x11
   - --filesystem=home
   - --device=dri
   - --share=network
-
-env:
-      # Will be appended to the version string displayed in the command-line help
-      BUILD_NAME: flathub
-
-      # SCons flags common to all builds
-      # Shouldn't be quoted when used as it's a single string, not an array
-      SCONS_FLAGS: >
-        platform=x11
-        CCFLAGS=-I/app/include
-        prefix=/app
-        unix_global_settings_path=/app
-        progress=no
-        builtin_freetype=no
-        builtin_libogg=no
-        builtin_libpng=no
-        builtin_libtheora=no
-        builtin_libvorbis=no
-        builtin_libwebp=no
-        builtin_libvpx=no
-        builtin_zlib=no
-        udev=no
 
 modules:
 
