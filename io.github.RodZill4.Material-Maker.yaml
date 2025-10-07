@@ -69,7 +69,7 @@ modules:
         path: godot-enable-tinyexr.patch
 
     build-commands:
-      - python3 /app/bin/scons $SCONS_FLAGS $SCONS_FLAGS_EXTRA tools=no target=release -j "$FLATPAK_BUILDER_N_JOBS"
+      - python3 /app/bin/scons $SCONS_FLAGS $SCONS_FLAGS_EXTRA tools=no target=template_release -j "$FLATPAK_BUILDER_N_JOBS"
       - install -Dm755 bin/godot.x11.opt.* /app/bin/godot-runner
 
   - name: material-maker
