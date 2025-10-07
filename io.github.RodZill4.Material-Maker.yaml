@@ -21,7 +21,7 @@ build-options:
         # SCons flags common to all builds
         # Shouldn't be quoted when used as it's a single string, not an array
         SCONS_FLAGS: >
-          platform=x11
+          platform=linuxbsd
           CCFLAGS=-I/app/include
           prefix=/app
           unix_global_settings_path=/app
@@ -98,10 +98,10 @@ modules:
 
       - type: file
         path: io.github.RodZill4.Material-Maker.appdata.xml
-        
+
     build-commands:
       - install -Dm755 material_maker.sh /app/bin/material-maker
-      - install -Dm644 material_maker.pck /app/bin/material-maker.pck
+      - install -Dm644 Material Maker.pck /app/bin/material-maker.pck
       - mv {examples,library,nodes,doc,environments,meshes,export}/ /app/bin/
       - install -Dm644 icon.png -t /app/share/icons/hicolor/256x256/apps/
       - install -Dm644 io.github.RodZill4.Material-Maker.desktop -t /app/share/applications/
