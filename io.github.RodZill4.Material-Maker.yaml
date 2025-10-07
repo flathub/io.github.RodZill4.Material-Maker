@@ -78,7 +78,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/RodZill4/material-maker/releases/download/1.4/material_maker_1_4_linux.tar.gz
-        sha256: sha256:b6ef34891a60ed898c6b6f977f107889e952280898405128eabaa50501a82531
+        sha256: b6ef34891a60ed898c6b6f977f107889e952280898405128eabaa50501a82531
 
       - type: script
         dest-filename: material_maker.sh
