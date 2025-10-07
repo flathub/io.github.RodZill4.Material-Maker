@@ -71,7 +71,8 @@ modules:
         dest: material-maker
 
     build-commands:
-    - ./Godot_v4.4.1-stable_linux.x86_64 --headless -v --path material-maker --export-pack "Linux/X11" /app/bin/material-maker.pck
+    - ./Godot_v4.4.1-stable_linux.x86_64 --headless -v --path material-maker --export-pack "Linux/X11" material-maker.pck
+    - install -Dm644 material-maker.pck /app/bin/material-maker.pck
 
   - name: godot-runner
     buildsystem: simple
