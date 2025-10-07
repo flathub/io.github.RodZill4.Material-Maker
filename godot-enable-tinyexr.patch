@@ -1,8 +1,32 @@
---- godot-3.5.2-stable/modules/tinyexr/config.py
-+++ godot-3.5.2-mm/modules/tinyexr/config.py
+diff -Naur godot-4.4.1-stable/modules/basis_universal/config.py godot-4.4.1-mm/modules/basis_universal/config.py
+--- godot-4.4.1-stable/modules/basis_universal/config.py	2025-03-26 00:11:16 +0000
++++ godot-4.4.1-mm/modules/basis_universal/config.py	2025-05-05 23:50:49 +0000
+@@ -1,6 +1,5 @@
+ def can_build(env, platform):
+-    if env.editor_build:  # Encoder dependencies
+-        env.module_add_dependencies("basis_universal", ["jpg", "tinyexr"])
++    env.module_add_dependencies("basis_universal", ["jpg", "tinyexr"])
+     return True
+ 
+ 
+diff -Naur godot-4.4.1-stable/modules/basis_universal/SCsub godot-4.4.1-mm/modules/basis_universal/SCsub
+--- godot-4.4.1-stable/modules/basis_universal/SCsub	2025-03-26 00:11:16 +0000
++++ godot-4.4.1-mm/modules/basis_universal/SCsub	2025-05-05 23:56:21 +0000
+@@ -14,7 +14,7 @@
+ thirdparty_dir = "#thirdparty/basis_universal/"
+ 
+ # Only build the encoder for editor builds
+-basisu_encoder = env.editor_build
++basisu_encoder = True
+ 
+ # Sync list with upstream CMakeLists.txt
+ if basisu_encoder:
+diff -Naur godot-4.4.1-stable/modules/tinyexr/config.py godot-4.4.1-mm/modules/tinyexr/config.py
+--- godot-4.4.1-stable/modules/tinyexr/config.py	2025-03-26 00:11:16 +0000
++++ godot-4.4.1-mm/modules/tinyexr/config.py	2025-05-06 06:38:21 +0000
 @@ -1,5 +1,5 @@
  def can_build(env, platform):
--    return env["tools"]
+-    return env.editor_build
 +    return True
  
  
