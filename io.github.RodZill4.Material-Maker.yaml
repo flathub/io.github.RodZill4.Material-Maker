@@ -51,8 +51,8 @@ modules:
 
     sources:
       - type: archive
-        sha256: 61e2fc42e0e2c750105d61f26cc1dfebcae9f4103d3dc0e9aeb373016b0d208c
-        url: https://downloads.sourceforge.net/project/scons/scons/4.10.0/SCons-4.10.0.tar.gz
+        sha256: 99c0e94a42a2c1182fa6859b0be697953db07ba936ecc9817ae0d218ced20b15
+        url: https://downloads.sourceforge.net/project/scons/scons/4.10.1/SCons-4.10.1.tar.gz
 
     build-commands:
       - pip3 install --no-index --no-build-isolation --prefix=/app .
@@ -62,22 +62,16 @@ modules:
 
     sources:
       - type: archive
-        sha256: d6e382fb531019f85630c1f485a561a0d20c4a2344b6c3847735cfee7da812aa
-        url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+        sha256: 02ec53d1cc7dbb9cc6355393c61b9ab43d1244751a124f10248a4802830788cd
+        url: https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_linux.x86_64.zip
 
       - type: archive
-        sha256: a7fa079d509116df077280f838c39a941665abd3f7fe9a3e0e0f0899ff15a286
-        url: https://github.com/RodZill4/material-maker/archive/refs/tags/1.4.tar.gz
+        sha256: 2bd3c33e0e9ea5499e038a64fd49064e6ce8a7a71c17e85e4f214985679c189b
+        url: https://github.com/RodZill4/material-maker/archive/refs/tags/1.5.tar.gz
         dest: material-maker
 
-      - type: patch
-        path: mm-fix-filedialog.patch
-        options:
-          - -d
-          - material-maker
-
     build-commands:
-    - ./Godot_v4.4.1-stable_linux.x86_64 --headless -v --path material-maker --export-pack "Linux/X11" material-maker.pck
+    - ./Godot_v4.5.1-stable_linux.x86_64 --headless -v --path material-maker --export-pack "Linux/X11" material-maker.pck
     - install -Dm644 material-maker/material-maker.pck /app/bin/material-maker.pck
 
   - name: godot-runner
@@ -85,8 +79,8 @@ modules:
 
     sources:
       - type: archive
-        sha256: ddbd6527cdb3ddb02910b383301a5c9117b1c33c777ef1c86d1b1eea43dcb651
-        url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/godot-4.4.1-stable.tar.xz
+        sha256: 559e11bdd85033640d49db67baa6f15be1128b2af38a5acc06e02b53363d8dde
+        url: https://github.com/godotengine/godot/releases/download/4.5.1-stable/godot-4.5.1-stable.tar.xz
 
       - type: patch
         path: godot-enable-tinyexr.patch
@@ -100,8 +94,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://github.com/RodZill4/material-maker/releases/download/1.4/material_maker_1_4_linux.tar.gz
-        sha256: b6ef34891a60ed898c6b6f977f107889e952280898405128eabaa50501a82531
+        url: https://github.com/RodZill4/material-maker/releases/download/1.5/material_maker_1_5_linux.tar.gz
+        sha256: 4d597161a99fc5bd60aab5bb943bc56f9bdbf4cc616ec862166de4d4a0c497e2
 
       - type: script
         dest-filename: material_maker.sh
@@ -112,11 +106,11 @@ modules:
           - /app/bin/godot-runner --audio-driver Dummy --main-pack /app/bin/material-maker.pck "$@"
 
       - type: file
-        url: https://github.com/RodZill4/material-maker/raw/1.4/icon.png
+        url: https://github.com/RodZill4/material-maker/raw/1.5/icon.png
         sha256: 72ee1a0fc59b798b8849eb9bd0cb7b67fd9ee3ff41645f90c2ca98168f3619ef
 
       - type: file
-        url: https://github.com/RodZill4/material-maker/raw/1.4/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
+        url: https://github.com/RodZill4/material-maker/raw/1.5/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
         sha256: 381e6425233d0aa3786c5583a2415d0d20b828481fa93dceac1e4376481d1330
 
       - type: file
