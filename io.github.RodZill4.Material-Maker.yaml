@@ -66,8 +66,8 @@ modules:
         url: https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_linux.x86_64.zip
 
       - type: archive
-        sha256: 2bd3c33e0e9ea5499e038a64fd49064e6ce8a7a71c17e85e4f214985679c189b
-        url: https://github.com/RodZill4/material-maker/archive/refs/tags/1.5.tar.gz
+        sha256: b32459ef54716e9235981d538ea50521a88979eb1ec98a71e336c57d50e764ba
+        url: https://github.com/RodZill4/material-maker/archive/refs/tags/1.5p1.tar.gz
         dest: material-maker
 
     build-commands:
@@ -94,8 +94,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://github.com/RodZill4/material-maker/releases/download/1.5/material_maker_1_5_linux.tar.gz
-        sha256: 4d597161a99fc5bd60aab5bb943bc56f9bdbf4cc616ec862166de4d4a0c497e2
+        url: https://github.com/RodZill4/material-maker/releases/download/1.5p1/material_maker_1_5p1_linux.tar.gz
+        sha256: d2a65fcadd9719f516b57f57b52b0eb47aa33fa86a40440976fb8c8a907b2a79
 
       - type: script
         dest-filename: material_maker.sh
@@ -106,11 +106,11 @@ modules:
           - /app/bin/godot-runner --audio-driver Dummy --main-pack /app/bin/material-maker.pck "$@"
 
       - type: file
-        url: https://github.com/RodZill4/material-maker/raw/1.5/icon.png
+        url: https://github.com/RodZill4/material-maker/raw/1.5p1/icon.png
         sha256: 72ee1a0fc59b798b8849eb9bd0cb7b67fd9ee3ff41645f90c2ca98168f3619ef
 
       - type: file
-        url: https://github.com/RodZill4/material-maker/raw/1.5/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
+        url: https://github.com/RodZill4/material-maker/raw/1.5p1/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
         sha256: 381e6425233d0aa3786c5583a2415d0d20b828481fa93dceac1e4376481d1330
 
       - type: file
