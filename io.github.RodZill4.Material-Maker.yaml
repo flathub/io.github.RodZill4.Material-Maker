@@ -1,40 +1,12 @@
 app-id: io.github.RodZill4.Material-Maker
+base: org.godotengine.godot.BaseApp
+base-version: '4.6'
 runtime: org.freedesktop.Platform
 runtime-version: "25.08"
 sdk: org.freedesktop.Sdk
 command: material-maker
 rename-icon: icon
 rename-appdata-file: io.github.RodZill4.Material-Maker.appdata.xml
-
-build-options:
-  arch:
-    x86_64:
-      env:
-        # Only enable link-time optimization when targeting x86_64
-        # (causes issues on other architectures)
-        SCONS_FLAGS_EXTRA: use_lto=yes
-
-  env:
-        # Will be appended to the version string displayed in the command-line help
-        BUILD_NAME: custom_build
-
-        # SCons flags common to all builds
-        # Shouldn't be quoted when used as it's a single string, not an array
-        SCONS_FLAGS: >
-          platform=linuxbsd
-          CCFLAGS=-I/app/include
-          prefix=/app
-          unix_global_settings_path=/app
-          progress=no
-          builtin_freetype=no
-          builtin_libogg=no
-          builtin_libpng=no
-          builtin_libtheora=no
-          builtin_libvorbis=no
-          builtin_libwebp=no
-          builtin_libvpx=no
-          builtin_zlib=no
-          udev=no
 
 finish-args:
   - --share=ipc
@@ -45,57 +17,30 @@ finish-args:
 
 modules:
 
-  - name: scons
-    buildsystem: simple
-    cleanup: ['*']
-
-    sources:
-      - type: archive
-        sha256: 99c0e94a42a2c1182fa6859b0be697953db07ba936ecc9817ae0d218ced20b15
-        url: https://downloads.sourceforge.net/project/scons/scons/4.10.1/SCons-4.10.1.tar.gz
-
-    build-commands:
-      - pip3 install --no-index --no-build-isolation --prefix=/app .
-
   - name: material-maker-pack
     buildsystem: simple
 
     sources:
       - type: archive
-        sha256: 02ec53d1cc7dbb9cc6355393c61b9ab43d1244751a124f10248a4802830788cd
-        url: https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_linux.x86_64.zip
-
+        sha256: 30e6b6d141f0cd5bebd629ad1d0ef1324e60091bb20662d026b402ba58c59937
+        url: https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_linux.x86_64.zip
+      
       - type: archive
-        sha256: b32459ef54716e9235981d538ea50521a88979eb1ec98a71e336c57d50e764ba
-        url: https://github.com/RodZill4/material-maker/archive/refs/tags/1.5p1.tar.gz
+        sha256: aedf77f25da853a89f26cfbb1d73b32ebc37e41f5430e257f14aa96f1b4f8d3a
+        url: https://github.com/RodZill4/material-maker/archive/refs/tags/1.6.tar.gz
         dest: material-maker
 
     build-commands:
-    - ./Godot_v4.5.1-stable_linux.x86_64 --headless -v --path material-maker --export-pack "Linux/X11" material-maker.pck
+    - ./Godot_v4.6.2-stable_linux.x86_64 --headless -v --path material-maker --export-pack "Linux/X11" material-maker.pck
     - install -Dm644 material-maker/material-maker.pck /app/bin/material-maker.pck
-
-  - name: godot-runner
-    buildsystem: simple
-
-    sources:
-      - type: archive
-        sha256: 559e11bdd85033640d49db67baa6f15be1128b2af38a5acc06e02b53363d8dde
-        url: https://github.com/godotengine/godot/releases/download/4.5.1-stable/godot-4.5.1-stable.tar.xz
-
-      - type: patch
-        path: godot-enable-tinyexr.patch
-
-    build-commands:
-      - python3 /app/bin/scons $SCONS_FLAGS $SCONS_FLAGS_EXTRA tools=no target=template_release -j "$FLATPAK_BUILDER_N_JOBS"
-      - install -Dm755 bin/godot.linuxbsd.* /app/bin/godot-runner
 
   - name: material-maker
     buildsystem: simple
 
     sources:
       - type: archive
-        url: https://github.com/RodZill4/material-maker/releases/download/1.5p1/material_maker_1_5p1_linux.tar.gz
-        sha256: d2a65fcadd9719f516b57f57b52b0eb47aa33fa86a40440976fb8c8a907b2a79
+        url: https://github.com/RodZill4/material-maker/releases/download/1.6/material_maker_1_6_linux.tar.gz
+        sha256: c4673a964ef39b4a705bcafb55b5214ac2f966c995aef3efe5636a4036883c1e
 
       - type: script
         dest-filename: material_maker.sh
@@ -106,11 +51,11 @@ modules:
           - /app/bin/godot-runner --audio-driver Dummy --main-pack /app/bin/material-maker.pck "$@"
 
       - type: file
-        url: https://github.com/RodZill4/material-maker/raw/1.5p1/icon.png
+        url: https://github.com/RodZill4/material-maker/raw/1.6/icon.png
         sha256: 72ee1a0fc59b798b8849eb9bd0cb7b67fd9ee3ff41645f90c2ca98168f3619ef
 
       - type: file
-        url: https://github.com/RodZill4/material-maker/raw/1.5p1/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
+        url: https://github.com/RodZill4/material-maker/raw/1.6/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
         sha256: 381e6425233d0aa3786c5583a2415d0d20b828481fa93dceac1e4376481d1330
 
       - type: file
