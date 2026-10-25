@@ -2,7 +2,7 @@ app-id: io.github.RodZill4.Material-Maker
 base: org.godotengine.godot.BaseApp
 base-version: '4.7'
 runtime: org.freedesktop.Platform
-runtime-version: "25.08"
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 command: material-maker
 rename-icon: icon
@@ -22,16 +22,16 @@ modules:
 
     sources:
       - type: archive
-        sha256: 0b1a6c54c2c619c12e169fe9241edda4b81080b519451cec2984bf0d2c6cb73c
-        url: https://github.com/godotengine/godot/releases/download/4.7-stable/Godot_v4.7-stable_linux.x86_64.zip
+        sha256: cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4
+        url: https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
       
       - type: archive
-        sha256: 6c662ae5dedaee7eb33736d6d8b094f9fb65297d57fef4f5991fbf9504c0a3ca
-        url: https://github.com/RodZill4/material-maker/archive/refs/tags/1.7.tar.gz
+        sha256: dd69c81ee06d31f3cfc0f3107cee2fb0d84db09ea618b12e6a0d033e3e0774e3
+        url: https://github.com/RodZill4/material-maker/archive/refs/tags/1.8.tar.gz
         dest: material-maker
 
     build-commands:
-    - ./Godot_v4.7-stable_linux.x86_64 --headless -v --path material-maker --export-pack "Linux/X11" material-maker.pck
+    - ./Godot_v4.7.2-stable_linux.x86_64 --headless -v --path material-maker --export-pack "Linux/X11" material-maker.pck
     - install -Dm644 material-maker/material-maker.pck /app/bin/material-maker.pck
 
   - name: material-maker
@@ -39,8 +39,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://github.com/RodZill4/material-maker/releases/download/1.7/material_maker_1_7_linux.tar.gz
-        sha256: c8e3b6f1993540875d26fe49645c91511bba36cda0412c715bd13249f7141647
+        url: https://github.com/RodZill4/material-maker/releases/download/1.8/material_maker_1_8_linux.tar.gz
+        sha256: 8e8eb7050e75086cfafeb4ddc0b09c4fe117f529693e611d6fccca1651e913b3
 
       - type: script
         dest-filename: material_maker.sh
@@ -51,11 +51,11 @@ modules:
           - /app/bin/godot-runner --audio-driver Dummy --main-pack /app/bin/material-maker.pck "$@"
 
       - type: file
-        url: https://github.com/RodZill4/material-maker/raw/1.7/icon.png
+        url: https://github.com/RodZill4/material-maker/raw/1.8/icon.png
         sha256: 72ee1a0fc59b798b8849eb9bd0cb7b67fd9ee3ff41645f90c2ca98168f3619ef
 
       - type: file
-        url: https://github.com/RodZill4/material-maker/raw/1.7/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
+        url: https://github.com/RodZill4/material-maker/raw/1.8/material_maker/misc/linux/io.github.RodZill4.Material-Maker.desktop
         sha256: 381e6425233d0aa3786c5583a2415d0d20b828481fa93dceac1e4376481d1330
 
       - type: file
