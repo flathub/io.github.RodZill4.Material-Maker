@@ -24,6 +24,9 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+  	<release version="1.8" date="2026-10-25">
+      <url type="details">https://github.com/RodZill4/material-maker/releases/tag/1.8</url>
+    </release>
   	<release version="1.7" date="2026-07-14"/>
   	<release version="1.6" date="2026-04-18"/>
   	<release version="1.5p1" date="2026-02-14"/>
